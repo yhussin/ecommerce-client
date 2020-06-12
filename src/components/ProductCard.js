@@ -4,7 +4,7 @@ const ProductCard = (props) => {
     return (
         <div>
             <div>
-                <img src={props.imageUrl} alt="Product"></img>
+              <img src={props.imageUrl} alt="Product"></img>
             </div>
 
             <h3>{props.name}</h3>

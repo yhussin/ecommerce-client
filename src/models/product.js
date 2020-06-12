@@ -18,9 +18,7 @@ class ProductModel {
       })
        .then(res => res.json)
   }
-//   static destroy = (productData) => {
-//       ??
-//   }
+
 }
 
 export default ProductModel;
