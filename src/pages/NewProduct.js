@@ -28,11 +28,12 @@ class NewProduct extends Component {
 
     render() {
         return (
-            <div>
-                <h2>New Product:</h2>
+            <>
 
+            <div className="center-block text-center">
+            <h2>New Product:</h2>
                 <form onSubmit={this.handleSubmit}>
-                    <div className="form-input">
+                    <div>
                         <label htmlFor="name">Name</label>
                         <input
                             type="text"
@@ -77,6 +78,7 @@ class NewProduct extends Component {
                     <input type="submit" value="Add new product" />
                 </form>
             </div>
+            </>
         )
     }
 }

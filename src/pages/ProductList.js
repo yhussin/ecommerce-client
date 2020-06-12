@@ -30,7 +30,11 @@ class ProductList extends Component {
     addIdToCart = (id) => {
         //this.setState({cart: [id, ...this.state.cart]})
         let currentCart = localStorage.getItem('cart')
-        localStorage.setItem('cart', currentCart + ', ' + id)
+        if (!currentCart) {
+          localStorage.setItem('cart', id)
+        } else {
+          localStorage.setItem('cart', currentCart + ', ' + id)  
+        }
     }
 
     componentDidMount() {
@@ -48,12 +52,13 @@ class ProductList extends Component {
         let productList = this.state.products.map((product, index) => {
             return (
                 <>
+                <div className="center-block text-center">
                 <Link key={ index } to={`/products/${product._id}`}>
-                    Product Name
+                Product Name
                 </Link>
                 <button onClick={() => this.addIdToCart(product._id)}> add to cart</button>
                 <ProductCard {...product} />
-                <br/>
+                </div>
                 </>
             )
         })

@@ -19,7 +19,7 @@ class ProductShow extends Component  {
 
     render() {
         return (
-            <div>
+            <div className="center-block text-center">
                 {this.state.product ? < ProductCard {...this.state.product} /> : 'Loading...'}
             </div>
         )
