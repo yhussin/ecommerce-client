@@ -2,14 +2,35 @@ import React, { Component } from 'react'
 import ProductModel from '../models/product';
 import ProductCard from '../components/ProductCard'
 import { Link } from 'react-router-dom';
+//import addProductToCart from './addProductToCart'
 
 
+// const addProductToCart = (product, next) => {
+//     let cart = []
+
+//     if (typeof window !== undefined) {
+//         if (localStorage.getItem('cart')) {
+//             cart = JSON.parse(localStorage.getItem('cart'))
+//         }
+//     cart.push({
+//         ...product,
+//         count: 1
+//     })
+//     }
+// }
 
 
 
 class ProductList extends Component {
     state = {
-        products: []
+        products: [], 
+        cart: []
+    }
+
+    addIdToCart = (id) => {
+        //this.setState({cart: [id, ...this.state.cart]})
+        let currentCart = localStorage.getItem('cart')
+        localStorage.setItem('cart', currentCart + ', ' + id)
     }
 
     componentDidMount() {
@@ -30,7 +51,7 @@ class ProductList extends Component {
                 <Link key={ index } to={`/products/${product._id}`}>
                     Product Name
                 </Link>
-                <Link to="/cart" > - add to cart</Link>
+                <button onClick={() => this.addIdToCart(product._id)}> add to cart</button>
                 <ProductCard {...product} />
                 <br/>
                 </>
