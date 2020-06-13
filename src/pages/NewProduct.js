@@ -30,12 +30,14 @@ class NewProduct extends Component {
         return (
             <>
 
-            <div className="center-block text-center">
+            <div>
+            <div className="col-sm-4">
             <h2>New Product:</h2>
                 <form onSubmit={this.handleSubmit}>
-                    <div>
+                    <div className="form-group">
                         <label htmlFor="name">Name</label>
                         <input
+                            className="form-control"
                             type="text"
                             name="name"
                             id="name"
@@ -46,6 +48,7 @@ class NewProduct extends Component {
                     <div className="form-input">
                         <label htmlFor="description">Description: </label>
                         <input
+                            className="form-control"
                             type="text"
                             name="description"
                             id="description"
@@ -57,6 +60,7 @@ class NewProduct extends Component {
                     <div className="form-input">
                         <label htmlFor="imageUrl">Image URL:</label>
                         <input
+                            className="form-control"
                             type="text"
                             name="imageUrl"
                             id="imageUrl"
@@ -67,6 +71,7 @@ class NewProduct extends Component {
                     <div className="form-input">
                         <label htmlFor="price"> Price: $</label>
                         <input
+                            className="form-control"
                             type="text"
                             name="price"
                             id="price"
@@ -77,6 +82,7 @@ class NewProduct extends Component {
 
                     <input type="submit" value="Add new product" />
                 </form>
+            </div>
             </div>
             </>
         )

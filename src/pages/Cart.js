@@ -36,7 +36,6 @@ class Cart extends Component {
             return (
                 <>
                     <div className="center-block text-center">                  
-                        Product Name
                         <ProductCard {...product} />
                     </div>
                 </>

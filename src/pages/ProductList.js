@@ -24,7 +24,7 @@ import { Link } from 'react-router-dom';
 
 class ProductList extends Component {
     state = {
-        products: [], 
+        products: [],
         cart: []
     }
 
@@ -32,9 +32,9 @@ class ProductList extends Component {
         //this.setState({cart: [id, ...this.state.cart]})
         let currentCart = localStorage.getItem('cart')
         if (!currentCart) {
-          localStorage.setItem('cart', id)
+            localStorage.setItem('cart', id)
         } else {
-          localStorage.setItem('cart', currentCart + ', ' + id)  
+            localStorage.setItem('cart', currentCart + ', ' + id)
         }
     }
 
@@ -53,18 +53,20 @@ class ProductList extends Component {
         let productList = this.state.products.map((product, index) => {
             return (
                 <>
-                <div className="card center-block text-center">
-                <div className="card-body">
-                <img src={product.imageUrl} alt="Product"></img>
-                <Link key={ index } to={`/products/${product._id}`}>
-                <h5 className="card-title">{product.name}</h5>
-                </Link>
-                <p className="card-text">{product.description}</p>
-                <button className="btn btn-primary" onClick={() => this.addIdToCart(product._id)}>Add to cart</button>
-                </div>
-                </div>
+                    <div className="center-block text-center col-sm-3">
+                        <div className="card">
+                            <div className="card-body">
+                                <img src={product.imageUrl} alt="Product"></img>
+                                <Link key={index} to={`/products/${product._id}`}>
+                                    <h5 className="card-title">{product.name}</h5>
+                                </Link>
+                                <p className="card-text">{product.description}</p>
+                                <button className="btn btn-primary" onClick={() => this.addIdToCart(product._id)}>Add to cart</button>
+                            </div>
+                        </div>
+                    </div>
 
-                {/* 
+                    {/* 
                 <div className="center-block text-center">
                 <Link key={ index } to={`/products/${product._id}`}>
                 <h1>{product.name}</h1>
@@ -72,19 +74,20 @@ class ProductList extends Component {
                 <button onClick={() => this.addIdToCart(product._id)}> add to cart</button>
                 <ProductCard {...product} />
                 </div> */}
-
                 </>
             )
         })
-    
+
         return (
-            <div>
-            <h1>This is the products page</h1>
-            {this.state.products ? productList: '...Loading...'}
-            <li></li>
-            </div>
+            <div className="center-block text-center">
+                <h1>This is the products page</h1>
+                {this.state.products ? productList : '...Loading...'}
+            </div >
         )
     }
 }
 
-export default ProductList 
+export default ProductList
+
+
+
