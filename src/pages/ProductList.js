@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import ProductModel from '../models/product';
 import ProductCard from '../components/ProductCard'
 import { Link } from 'react-router-dom';
+
 //import addProductToCart from './addProductToCart'
 
 
@@ -52,13 +53,26 @@ class ProductList extends Component {
         let productList = this.state.products.map((product, index) => {
             return (
                 <>
+                <div className="card center-block text-center">
+                <div className="card-body">
+                <img src={product.imageUrl} alt="Product"></img>
+                <Link key={ index } to={`/products/${product._id}`}>
+                <h5 className="card-title">{product.name}</h5>
+                </Link>
+                <p className="card-text">{product.description}</p>
+                <button className="btn btn-primary" onClick={() => this.addIdToCart(product._id)}>Add to cart</button>
+                </div>
+                </div>
+
+                {/* 
                 <div className="center-block text-center">
                 <Link key={ index } to={`/products/${product._id}`}>
                 <h1>{product.name}</h1>
                 </Link>
                 <button onClick={() => this.addIdToCart(product._id)}> add to cart</button>
                 <ProductCard {...product} />
-                </div>
+                </div> */}
+
                 </>
             )
         })
