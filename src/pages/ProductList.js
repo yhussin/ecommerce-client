@@ -54,7 +54,7 @@ class ProductList extends Component {
                 <>
                 <div className="center-block text-center">
                 <Link key={ index } to={`/products/${product._id}`}>
-                Product Name
+                <h1>{product.name}</h1>
                 </Link>
                 <button onClick={() => this.addIdToCart(product._id)}> add to cart</button>
                 <ProductCard {...product} />
