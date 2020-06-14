@@ -62,7 +62,7 @@ class ProductList extends Component {
         let productList = this.state.products.map((product, index) => {
             return (
                 <>
-                    <div className="center-block text-center col-sm-3">
+                    <div className="col-sm-3">
                         <div className="card">
                             <div className="card-body">
                                 <img src={product.imageUrl} alt="Product"></img>
@@ -89,10 +89,12 @@ class ProductList extends Component {
         })
 
         return (
-            <div className="center-block text-center">
-                <h1>This is the products page</h1>
+            <>
+            <h1 className="center-block text-center">This is the products page</h1>
+            <div className="row">
                 {this.state.products ? productList : '...Loading...'}
-            </div >
+            </div>
+            </>
         )
     }
 }

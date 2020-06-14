@@ -29,6 +29,14 @@ class Cart extends Component {
          }))
     }
 
+
+    removeFromCart = () => {
+        return fetch (`${url}/products/:id`, {
+            method: "DELETE", 
+        })
+         .then(res => res.json)
+    }
+
     render() {
 
         let cartContents = this.state.products.map((product, index) => {
@@ -37,6 +45,7 @@ class Cart extends Component {
                 <>
                     <div className="center-block text-center">                  
                         <ProductCard {...product} />
+                        <button className="btn btn-primary" onClick={() => this.removeFromCart()}>Remove from Cart</button>
                     </div>
                 </>
             )

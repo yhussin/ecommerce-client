@@ -18,6 +18,12 @@ class ProductModel {
       })
        .then(res => res.json)
   }
+  static removeItem = () => {
+    return fetch (`${url}/products/:id`, {
+        method: "DELETE", 
+    })
+     .then(res => res.json)
+}
 
 }
 
