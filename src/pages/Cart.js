@@ -8,6 +8,15 @@ class Cart extends Component {
         cart: localStorage.getItem('cart').split(", "), 
         products: []
     }
+    
+    // deleteProduct = (id) => {
+    //     let currentCart = localStorage.getItem('cart')
+    //     if (!currentCart) {
+    //         localStorage.removeItem('cart', id)
+    //     } else {
+    //         localStorage.removeItem('cart', currentCart + ', ' + id)
+    //     }
+    // }
 
     componentDidMount() {
         this.fetchData()
@@ -30,12 +39,6 @@ class Cart extends Component {
     }
 
 
-    removeFromCart = () => {
-        return fetch (`${url}/products/:id`, {
-            method: "DELETE", 
-        })
-         .then(res => res.json)
-    }
 
     render() {
 
@@ -45,7 +48,7 @@ class Cart extends Component {
                 <>
                     <div className="center-block text-center">                  
                         <ProductCard {...product} />
-                        <button className="btn btn-primary" onClick={() => this.removeFromCart()}>Remove from Cart</button>
+                        <button className="btn btn-primary" onClick={() => this.deleteProduct()}>Remove from Cart</button>
                     </div>
                 </>
             )

@@ -71,7 +71,7 @@ class ProductList extends Component {
                                 </Link>
                                 <p className="card-text">{product.description}</p>
                                 <button className="btn btn-primary" onClick={() => this.addIdToCart(product._id)}>Add to cart</button>
-                                <button className="btn btn-primary" onClick={() => this.deleteProduct()}>Delete Product</button>
+                                <button className="btn btn-primary" onClick={() => this.deleteProduct()}>Remove from cart</button>
                             </div>
                         </div>
                     </div>
