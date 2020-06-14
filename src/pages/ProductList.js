@@ -3,7 +3,7 @@ import ProductModel from '../models/product';
 import ProductCard from '../components/ProductCard'
 import { Link } from 'react-router-dom';
 
-//import addProductToCart from './addProductToCart'
+
 
 
 // const addProductToCart = (product, next) => {
@@ -38,6 +38,15 @@ class ProductList extends Component {
         }
     }
 
+    deleteProduct = (id) => {
+        let currentCart = localStorage.getItem('cart')
+        if (!currentCart) {
+            localStorage.removeItem('cart', id)
+        } else {
+            localStorage.removeItem('cart', currentCart + ', ' + id)
+        }
+    }
+
     componentDidMount() {
         this.fetchData()
     }
@@ -62,6 +71,7 @@ class ProductList extends Component {
                                 </Link>
                                 <p className="card-text">{product.description}</p>
                                 <button className="btn btn-primary" onClick={() => this.addIdToCart(product._id)}>Add to cart</button>
+                                <button className="btn btn-primary" onClick={() => this.deleteProduct()}>Delete Product</button>
                             </div>
                         </div>
                     </div>
