@@ -90,7 +90,7 @@ class ProductList extends Component {
 
         return (
             <>
-            <h1 className="center-block text-center">This is the products page</h1>
+            <h1 className="center-block text-center">Our Current Offerings</h1>
             <div className="row">
                 {this.state.products ? productList : '...Loading...'}
             </div>

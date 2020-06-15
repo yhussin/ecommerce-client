@@ -4,11 +4,11 @@ import ProductModel from '../models/product'
 const url = `http://localhost:5000`
 
 class Cart extends Component {
+
     state = {
-        cart: localStorage.getItem('cart').split(", "), 
         products: []
     }
-    
+
     // deleteProduct = (id) => {
     //     let currentCart = localStorage.getItem('cart')
     //     if (!currentCart) {
@@ -19,23 +19,39 @@ class Cart extends Component {
     // }
 
     componentDidMount() {
-        this.fetchData()
+
+
+        let cart = []
+        if (localStorage.getItem('cart')) {
+            cart = localStorage.getItem('cart').split(", ")
+        }
+        this.setState((prevState) => {
+            return {
+                ...prevState,
+                cart: cart
+            }
+        },
+            this.fetchData
+        )
     }
- 
+
     fetchData = () => {
         console.log(JSON.stringify(this.state))
 
-        return fetch (`${url}/products/cartid`, {
-            method: "POST", 
+        return fetch(`${url}/products/cartid`, {
+            method: "POST",
             headers: {
                 "Content-Type": "application/json"
-            }, 
+            },
             body: JSON.stringify(this.state)
         })
-         .then(res => res.json())
-         .then(data => this.setState({
-             products: data.products
-         }))
+            .then(res => res.json())
+            .then(data => this.setState((prevState) => {
+                return {
+                    ...prevState,
+                    products: data.products
+                }
+            }))
     }
 
 
@@ -46,7 +62,7 @@ class Cart extends Component {
 
             return (
                 <>
-                    <div className="center-block text-center">                  
+                    <div className="center-block text-center">
                         <ProductCard {...product} />
                         <button className="btn btn-primary" onClick={() => this.deleteProduct()}>Remove from Cart</button>
                     </div>
@@ -57,7 +73,7 @@ class Cart extends Component {
         return (
             <div>
                 <h1>This is the cart page</h1>
-                { cartContents }
+                {cartContents}
             </div>
         )
     }
