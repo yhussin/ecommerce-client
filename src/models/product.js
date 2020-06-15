@@ -18,15 +18,15 @@ class ProductModel {
         })
             .then(res => res.json)
     }
-    static removeItem = () => {
-        return fetch(`${url}/products/:id`, {
+    static removeItem = (id) => {
+        return fetch(`${url}/products/${id}`, {
             method: "DELETE",
         })
             .then(res => res.json)
     }
     static update = (productData) => {
         return fetch(`${url}/products/:id`, {
-            method: "POST",
+            method: "PUT",
             headers: {
                 "Content-Type": "application/json"
             },
@@ -34,7 +34,6 @@ class ProductModel {
         })
             .then(res => res.json)
     }
-
 
 }
 

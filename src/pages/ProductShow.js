@@ -17,10 +17,18 @@ class ProductShow extends Component  {
          .then(data => this.setState({product: data}))
     }
 
+    removeItem = () => {
+        ProductModel.removeItem(this.state.currentProductId)
+         .then(data => this.props.history.push('/products'))
+         .catch(err =>  console.log(err))
+    }
+    
+
     render() {
         return (
             <div className="center-block text-center">
                 {this.state.product ? < ProductCard {...this.state.product} /> : 'Loading...'}
+                <button className="btn btn-primary" onClick={this.removeItem}>DELETE</button>
             </div>
         )
     }
