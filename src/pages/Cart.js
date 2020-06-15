@@ -63,8 +63,17 @@ class Cart extends Component {
             return (
                 <>
                     <div className="center-block text-center">
-                        <ProductCard {...product} />
-                        <button className="btn btn-primary" onClick={() => this.deleteProduct()}>Remove from Cart</button>
+                    <div className="col-sm-3">
+                        <div className="card">
+                            <div className="card-body">
+                                <img src={product.imageUrl} alt="Product"></img>
+                                <h5 className="card-title">{product.name}</h5>
+                                <p className="card-text">{product.description}</p>
+                                <p className="card-text">${product.price}</p>
+                                <button className="btn btn-primary" onClick={() => this.deleteProduct()}>Remove from cart</button>
+                            </div>
+                        </div>
+                    </div>
                     </div>
                 </>
             )
