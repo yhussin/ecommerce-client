@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import ProductCard from '../components/ProductCard'
 import ProductModel from '../models/product'
+import { Link } from 'react-router-dom';
 const url = `http://localhost:5000`
+
 
 class Cart extends Component {
 
@@ -19,7 +21,6 @@ class Cart extends Component {
     // }
 
     componentDidMount() {
-
 
         let cart = []
         if (localStorage.getItem('cart')) {
@@ -63,17 +64,24 @@ class Cart extends Component {
             return (
                 <>
                     <div className="center-block text-center">
-                    <div className="col-sm-3">
-                        <div className="card">
-                            <div className="card-body">
-                                <img src={product.imageUrl} alt="Product"></img>
-                                <h5 className="card-title">{product.name}</h5>
-                                <p className="card-text">{product.description}</p>
-                                <p className="card-text">${product.price}</p>
-                                <button className="btn btn-primary" onClick={() => this.deleteProduct()}>Remove from cart</button>
+                        <div className="col-sm-3">
+                            <div className="card">
+                                <div className="card-body">
+                                    <img src={product.imageUrl} alt="Product"></img>
+                                    <h5 className="card-title">{product.name}</h5>
+                                    <p>Quantity: {index}</p>
+                                    <p className="card-text">{product.description}</p>
+                                    <p className="card-text">${product.price}</p>
+                                    
+                                        <Link key={index} to={`/products/update/${product._id}`}>
+                                        <button className="btn btn-primary">
+                                            Edit Item
+                                            </button>
+                                        </Link>
+                                   
+                                </div>
                             </div>
                         </div>
-                    </div>
                     </div>
                 </>
             )
