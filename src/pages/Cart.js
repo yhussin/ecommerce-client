@@ -72,7 +72,7 @@ class Cart extends Component {
 
         return (
             <div>
-                <h1>This is the cart page</h1>
+                <h1>Shopping Cart:</h1>
                 {cartContents}
             </div>
         )
