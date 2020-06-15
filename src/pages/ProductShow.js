@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ProductModel from '../models/product';
 import ProductCard from '../components/ProductCard';
+import { Link } from 'react-router-dom';
 
 class ProductShow extends Component  {
     state = {
@@ -29,6 +30,12 @@ class ProductShow extends Component  {
             <div className="center-block text-center">
                 {this.state.product ? < ProductCard {...this.state.product} /> : 'Loading...'}
                 <button className="btn btn-primary" onClick={this.removeItem}>DELETE</button>
+                <Link to={`/products/update/${this.state.product.id}`}>
+                                        <button className="btn btn-primary">
+                                            Edit Item
+                                            </button>
+                                        </Link>
+
             </div>
         )
     }

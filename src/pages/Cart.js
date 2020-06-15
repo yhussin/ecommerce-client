@@ -73,11 +73,7 @@ class Cart extends Component {
                                     <p className="card-text">{product.description}</p>
                                     <p className="card-text">${product.price}</p>
                                     
-                                        <Link key={index} to={`/products/update/${product._id}`}>
-                                        <button className="btn btn-primary">
-                                            Edit Item
-                                            </button>
-                                        </Link>
+
                                    
                                 </div>
                             </div>
