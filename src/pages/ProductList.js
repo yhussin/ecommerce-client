@@ -38,6 +38,7 @@ class ProductList extends Component {
         }
     }
 
+    
     deleteProduct = (id) => {
         let currentCart = localStorage.getItem('cart')
         if (!currentCart) {
